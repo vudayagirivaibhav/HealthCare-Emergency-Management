@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <style>
+  html, body, #map-canvas {
+    height: 90%;
+    margin: 0px;
+    padding: 0px
+  }
+  #popup{
+    position: absolute;
+    z-index: 9999;
+    background: #fff;
+    border: 1px solid #eee;
+    color: #222;
+    top:70%;
+    right:10%;
+    width: 70%;
+    /*height:50%;*/
+    opacity: 0.7;
+    border-radius: 4px;
+    padding:2px;
+  }
+  .hide{
+    display: none;
+  }
+ul {
+    float: left;
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+    width: 50%;
+}
+li {
+    border: 1px solid #222;
+    margin: 0;
+    padding: 0;
+    height: 60px;
+}
+  </style>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places,weather,geometry,"></script>
+  </head>
+  <body onload="getLocation()">
+    <div id="popup" >
+      <h1>Near by hospitals List</h1>
+      <ul id="places"></ul>
+      <ul id="plinfo"><ul>   
+	  <ul id="times"></ul>
+    </div>
+    <center>
+	<div id="short" align ="left"> <p id=> The fastest hospital to reach is  </p>
+	
+<p id="demo">Hospital </p>
+
+<button type="button"
+onclick="document.getElementById('demo').innerHTML = 'San Jose disablity services'">
+Get fastest reachable hospital</button>
+</div>
+    <div id="info"><h2>Tracking all Near by Hospitals and their details....</h2></div>
+  </center>
+  <div id="map-canvas"></div>
+  <script>
+ var  timeroute =0;
+var rendererOptions = {
+  draggable: true
+};
+        var ul = document.getElementById('places');
+        var ul_p = document.getElementById('plinfo');
+        var ul_t = document.getElementById('times');
+  var lat,lng,map,infowindow,service;
+  var r=2000;
+  var directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
+var directionsService = new google.maps.DirectionsService();
+  var x=document.getElementById('info');
+  function getLocation() {
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+      } else { 
+          x.innerHTML = "Geolocation is not supported by this browser.";}
+      }
+      
+  function showPosition(position) {
+      lat=position.coords.latitude; 
+      lng=position.coords.longitude;  
+      initialize();
+  }
+  function initialize() {
+    x.innerHTML ="";
+    document.getElementById('popup').classList.remove('hide');
+    var pyrmont = new google.maps.LatLng(lat,lng); 
+
+    map = new google.maps.Map(document.getElementById('map-canvas'), {
+      center: pyrmont,
+      zoom: 15
+    });
+//directionsDisplay.setMap(map);
+    var marker = new google.maps.Marker({
+      position: pyrmont,
+      map: map,
+	  title: 'Current location'
+  });
+
+  var trafficLayer = new google.maps.TrafficLayer();
+    trafficLayer.setMap(map);
+
+  var weatherLayer = new google.maps.weather.WeatherLayer({    
+    temperatureUnits: google.maps.weather.TemperatureUnit.FAHRENHEIT
+  });
+  weatherLayer.setMap(map);
+
+  var cloudLayer = new google.maps.weather.CloudLayer();
+  cloudLayer.setMap(map);
+
+
+    var request = {
+      location: pyrmont,
+      radius:r,
+      types: ['hospital'] 
+
+    };
+    infowindow = new google.maps.InfoWindow();
+    service = new google.maps.places.PlacesService(map);
+    service.nearbySearch(request, callback);
+
+  }
+
+  function callback(results, status) {
+  
+    if(results.length==0){
+      r+=1600;
+      console.log(r);
+    initialize();
+    }
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      var origin = new google.maps.LatLng(lat,lng);
+	  var ltime=0;
+	  
+     for (var i = 0; i < results.length; i++) {
+       
+      var newli = document.createElement('li');
+      var locationDestino = results[i].geometry.location;
+      var latDestino  = results[i].geometry.location.lat();
+      var longDestino = results[i].geometry.location.lng();
+	  if(i==0)
+{
+directionsDisplay.setMap(map); 
+}
+    newli.innerHTML =results[i].name;
+    ul.appendChild(newli);
+	
+    calcRoute(origin,locationDestino);
+/*	if(i==0)
+	{
+	ltime =timeroute;
+	}
+	
+	else ()
+	{
+	           ltime =timeroute;
+			   
+			  
+	} 
+	
+*/	
+	 
+      createMarker(results[i]); 
+	  
+        }
+    }
+  }
+
+  function createMarker(place) {
+  
+    var marker = new google.maps.Marker({
+      map: map,
+      position: place.geometry.location
+    });
+	//map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    //directionsDisplay.setMap(marker);
+
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.setContent(place.name);
+      infowindow.open(map, this);
+    });
+
+  }
+
+function calcRoute(origin,locationDestino) {
+  var request = {
+    origin: origin,
+    destination: locationDestino,
+    travelMode: google.maps.DirectionsTravelMode.DRIVING
+  };
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
+	  
+         var newli = document.createElement('li');
+		             newli.innerHTML =" Distance :  "+response.routes[0].legs[0].distance["text"]+" time :  "+response.routes[0].legs[0].duration["text"]+" Address: "+response.routes[0].legs[0].end_address;
+			ul_p.appendChild(newli);		
+      //   var newli1 = document.createElement('li');
+					//timeroute= response.routes[0].legs[0].duration["value"];
+					//newli1.innerHTML =   timeroute;
+					
+    
+   ul_t.appendChild(newli1);
+         
+		 
+
+    }
+	
+  });
+  
+}
+
+  </script>
+
+  </body>
+</html>

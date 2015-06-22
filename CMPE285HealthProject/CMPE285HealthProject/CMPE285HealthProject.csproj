@@ -1,0 +1,787 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E17AD822-926E-4195-AF48-0AC1B690DBDA}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CMPE285HealthProject</RootNamespace>
+    <AssemblyName>CMPE285HealthProject</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Data.Edm.5.6.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Data.OData.5.6.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.6.0\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.2.0.3\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Diagnostics, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.ServiceRuntime, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WindowsAzure.Storage.4.0.1\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Spatial, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\System.Spatial.5.6.0\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.1.8.2\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery.UI.Combined">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.UI.Combined.1.8.24\lib\net45\AspNet.ScriptManager.jQuery.UI.Combined.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax, Version=4.5.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.MSAjax.4.5.6\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms, Version=4.5.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.WebForms.4.5.6\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.2.0.0\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.1.4.12333\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.1.4.12333\lib\net40-full\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Membership.OpenAuth, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Membership.OpenAuth.2.0.1\lib\net45\Microsoft.AspNet.Membership.OpenAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.WebForms.1.0.0\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.0\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\Manage.aspx" />
+    <Content Include="Account\OpenAuthProviders.ascx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="Account\RegisterExternalLogin.aspx" />
+    <Content Include="Ambulance.aspx" />
+    <Content Include="Booking.aspx" />
+    <Content Include="HealthTips.aspx" />
+    <Content Include="Helpline.aspx" />
+    <Content Include="New_Appointment.aspx" />
+    <Content Include="Parking.aspx" />
+    <Content Include="User_Appointments.aspx" />
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\AspNet.ScriptManager.jQuery.dll" />
+    <Content Include="bin\AspNet.ScriptManager.jQuery.UI.Combined.dll" />
+    <Content Include="bin\CMPE285HealthProject.dll" />
+    <Content Include="bin\CMPE285HealthProject.pdb" />
+    <Content Include="bin\DotNetOpenAuth.AspNet.dll" />
+    <Content Include="bin\DotNetOpenAuth.AspNet.xml" />
+    <Content Include="bin\DotNetOpenAuth.Core.dll" />
+    <Content Include="bin\DotNetOpenAuth.Core.xml" />
+    <Content Include="bin\DotNetOpenAuth.OAuth.Consumer.dll" />
+    <Content Include="bin\DotNetOpenAuth.OAuth.Consumer.xml" />
+    <Content Include="bin\DotNetOpenAuth.OAuth.dll" />
+    <Content Include="bin\DotNetOpenAuth.OAuth.xml" />
+    <Content Include="bin\DotNetOpenAuth.OpenId.dll" />
+    <Content Include="bin\DotNetOpenAuth.OpenId.RelyingParty.dll" />
+    <Content Include="bin\DotNetOpenAuth.OpenId.RelyingParty.xml" />
+    <Content Include="bin\DotNetOpenAuth.OpenId.xml" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\EntityFramework.xml" />
+    <Content Include="bin\Microsoft.AspNet.FriendlyUrls.dll" />
+    <Content Include="bin\Microsoft.AspNet.FriendlyUrls.xml" />
+    <Content Include="bin\Microsoft.AspNet.Membership.OpenAuth.dll" />
+    <Content Include="bin\Microsoft.AspNet.Membership.OpenAuth.xml" />
+    <Content Include="bin\Microsoft.AspNet.Web.Optimization.WebForms.dll" />
+    <Content Include="bin\Microsoft.ScriptManager.MSAjax.dll" />
+    <Content Include="bin\Microsoft.ScriptManager.WebForms.dll" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Providers.dll" />
+    <Content Include="bin\System.Web.Providers.xml" />
+    <Content Include="bin\WebGrease.dll" />
+    <Content Include="Contact.aspx" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="css\responsiveslides.css" />
+    <Content Include="css\Signup.css" />
+    <Content Include="css\style.css" />
+    <Content Include="Home.aspx" />
+    <Content Include="Hospital.aspx" />
+    <Content Include="Images\accent.png" />
+    <Content Include="Images\best.png" />
+    <Content Include="Images\bullet.png" />
+    <Content Include="Images\d1.jpg" />
+    <Content Include="Images\d2.jpg" />
+    <Content Include="Images\d3.jpg" />
+    <Content Include="Images\d4.jpg" />
+    <Content Include="Images\facebook.png" />
+    <Content Include="Images\feed.png" />
+    <Content Include="Images\heroAccent.png" />
+    <Content Include="Images\inject.png" />
+    <Content Include="Images\lock.png" />
+    <Content Include="Images\lock1.png" />
+    <Content Include="Images\login.png" />
+    <Content Include="Images\login1.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\marker.png" />
+    <Content Include="Images\marker02.png" />
+    <Content Include="Images\marker020.png" />
+    <Content Include="Images\marker1.png" />
+    <Content Include="Images\orderedList0.png" />
+    <Content Include="Images\orderedList1.png" />
+    <Content Include="Images\orderedList2.png" />
+    <Content Include="Images\orderedList3.png" />
+    <Content Include="Images\orderedList4.png" />
+    <Content Include="Images\orderedList5.png" />
+    <Content Include="Images\orderedList6.png" />
+    <Content Include="Images\orderedList7.png" />
+    <Content Include="Images\orderedList8.png" />
+    <Content Include="Images\orderedList9.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\phone.png" />
+    <Content Include="Images\slider1.jpg" />
+    <Content Include="Images\slider2.jpg" />
+    <Content Include="Images\slider2.png" />
+    <Content Include="Images\slider21.jpg" />
+    <Content Include="Images\slider3.jpg" />
+    <Content Include="Images\slider3.png" />
+    <Content Include="Images\timer.png" />
+    <Content Include="Images\tool.png" />
+    <Content Include="Images\twitter.png" />
+    <Content Include="js\responsiveslides.min.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="obj\Debug\CMPE285HealthProject.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\CMPE285HealthProject.dll" />
+    <Content Include="obj\Debug\CMPE285HealthProject.pdb" />
+    <Content Include="obj\Release\CMPE285HealthProject.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Release\CMPE285HealthProject.dll" />
+    <Content Include="obj\Release\CMPE285HealthProject.pdb" />
+    <Content Include="obj\Release\CSAutoParameterize.parameters.xml" />
+    <Content Include="obj\Release\Package\CMPE285HealthProject.SourceManifest.xml" />
+    <Content Include="obj\Release\Package\FilePreviewParameter.xml" />
+    <Content Include="obj\Release\Package\PackageTmp\About.aspx" />
+    <Content Include="obj\Release\Package\PackageTmp\Account\Login.aspx" />
+    <Content Include="obj\Release\Package\PackageTmp\Account\Manage.aspx" />
+    <Content Include="obj\Release\Package\PackageTmp\Account\OpenAuthProviders.ascx" />
+    <Content Include="obj\Release\Package\PackageTmp\Account\Register.aspx" />
+    <Content Include="obj\Release\Package\PackageTmp\Account\RegisterExternalLogin.aspx" />
+    <Content Include="obj\Release\Package\PackageTmp\app_data\jobs\continuous\CMPE285HealthProjectCloud\CMPE285HealthProjectCloud.exe" />
+    <Content Include="obj\Release\Package\PackageTmp\app_data\jobs\continuous\CMPE285HealthProjectCloud\Microsoft.Azure.WebJobs.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\app_data\jobs\continuous\CMPE285HealthProjectCloud\Microsoft.Azure.WebJobs.Host.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\app_data\jobs\continuous\CMPE285HealthProjectCloud\Microsoft.Azure.WebJobs.Host.xml" />
+    <Content Include="obj\Release\Package\PackageTmp\app_data\jobs\continuous\CMPE285HealthProjectCloud\Microsoft.Azure.WebJobs.xml" />
+    <Content Include="obj\Release\Package\PackageTmp\app_data\jobs\continuous\CMPE285HealthProjectCloud\Microsoft.Data.Edm.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\app_data\jobs\continuous\CMPE285HealthProjectCloud\Microsoft.Data.Edm.xml" />
+    <Content Include="obj\Release\Package\PackageTmp\app_data\jobs\continuous\CMPE285HealthProjectCloud\Microsoft.Data.OData.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\app_data\jobs\continuous\CMPE285HealthProjectCloud\Microsoft.Data.OData.xml" />
+    <Content Include="obj\Release\Package\PackageTmp\app_data\jobs\continuous\CMPE285HealthProjectCloud\Microsoft.Data.Services.Client.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\app_data\jobs\continuous\CMPE285HealthProjectCloud\Microsoft.Data.Services.Client.xml" />
+    <Content Include="obj\Release\Package\PackageTmp\app_data\jobs\continuous\CMPE285HealthProjectCloud\Microsoft.WindowsAzure.Configuration.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\app_data\jobs\continuous\CMPE285HealthProjectCloud\Microsoft.WindowsAzure.Configuration.xml" />
+    <Content Include="obj\Release\Package\PackageTmp\app_data\jobs\continuous\CMPE285HealthProjectCloud\Microsoft.WindowsAzure.Storage.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\app_data\jobs\continuous\CMPE285HealthProjectCloud\Microsoft.WindowsAzure.Storage.xml" />
+    <Content Include="obj\Release\Package\PackageTmp\app_data\jobs\continuous\CMPE285HealthProjectCloud\Newtonsoft.Json.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\app_data\jobs\continuous\CMPE285HealthProjectCloud\Newtonsoft.Json.xml" />
+    <Content Include="obj\Release\Package\PackageTmp\app_data\jobs\continuous\CMPE285HealthProjectCloud\System.Spatial.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\app_data\jobs\continuous\CMPE285HealthProjectCloud\System.Spatial.xml" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Antlr3.Runtime.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\AspNet.ScriptManager.jQuery.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\AspNet.ScriptManager.jQuery.UI.Combined.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\CMPE285HealthProject.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\DotNetOpenAuth.AspNet.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\DotNetOpenAuth.Core.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\DotNetOpenAuth.OAuth.Consumer.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\DotNetOpenAuth.OAuth.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\DotNetOpenAuth.OpenId.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\DotNetOpenAuth.OpenId.RelyingParty.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\EntityFramework.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\EntityFramework.SqlServer.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.AspNet.FriendlyUrls.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.AspNet.Membership.OpenAuth.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.ScriptManager.MSAjax.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.ScriptManager.WebForms.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\System.Web.Optimization.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\System.Web.Providers.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\WebGrease.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\Contact.aspx" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\Site.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\jquery-ui.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\jquery.ui.all.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\jquery.ui.base.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\jquery.ui.button.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\jquery.ui.core.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="obj\Release\Package\PackageTmp\Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="obj\Release\Package\PackageTmp\css\responsiveslides.css" />
+    <Content Include="obj\Release\Package\PackageTmp\css\style.css" />
+    <Content Include="obj\Release\Package\PackageTmp\favicon.ico" />
+    <Content Include="obj\Release\Package\PackageTmp\Global.asax" />
+    <Content Include="obj\Release\Package\PackageTmp\Home.aspx" />
+    <Content Include="obj\Release\Package\PackageTmp\Hospital.aspx" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\accent.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\best.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\bullet.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\d1.jpg" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\d2.jpg" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\d3.jpg" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\d4.jpg" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\facebook.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\feed.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\heroAccent.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\inject.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\lock.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\lock1.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\login.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\login1.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\logo.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\marker.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\marker02.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\marker020.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\marker1.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\orderedList0.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\orderedList1.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\orderedList2.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\orderedList3.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\orderedList4.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\orderedList5.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\orderedList6.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\orderedList7.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\orderedList8.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\orderedList9.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\phone.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\slider1.jpg" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\slider2.jpg" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\slider2.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\slider21.jpg" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\slider3.jpg" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\slider3.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\timer.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\tool.png" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\twitter.png" />
+    <Content Include="obj\Release\Package\PackageTmp\js\responsiveslides.min.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\jquery-1.8.2.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\jquery-1.8.2.min.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\jquery-ui-1.8.24.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\jquery-ui-1.8.24.min.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\modernizr-2.6.2.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\WebForms\DetailsView.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\WebForms\Focus.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\WebForms\GridView.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\WebForms\Menu.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\WebForms\MenuStandards.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\WebForms\SmartNav.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\WebForms\TreeView.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\WebForms\WebForms.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\WebForms\WebParts.js" />
+    <Content Include="obj\Release\Package\PackageTmp\Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="obj\Release\Package\PackageTmp\ViewSwitcher.ascx" />
+    <Content Include="obj\Release\_WPPLastBuildInfo.txt" />
+    <Content Include="packages.config" />
+    <Content Include="Images\Thumbs.db" />
+    <Content Include="Physician.aspx" />
+    <Content Include="Properties\webjobs-list.json" />
+    <Content Include="bin\CMPE285HealthProject.dll.config" />
+    <Content Include="obj\Debug\CMPE285HealthProject.csprojResolveAssemblyReference.cache" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Release\CMPE285HealthProject.csprojResolveAssemblyReference.cache" />
+    <Content Include="obj\Release\CSAutoParameterize\original\Account\Web.config" />
+    <Content Include="obj\Release\CSAutoParameterize\original\Web.config" />
+    <Content Include="obj\Release\CSAutoParameterize\transformed\Account\Web.config" />
+    <Content Include="obj\Release\CSAutoParameterize\transformed\Web.config" />
+    <Content Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Release\Package\PackageTmp\Account\Web.config" />
+    <Content Include="obj\Release\Package\PackageTmp\app_data\jobs\continuous\CMPE285HealthProjectCloud\CMPE285HealthProjectCloud.exe.config" />
+    <Content Include="obj\Release\Package\PackageTmp\Bundle.config" />
+    <Content Include="obj\Release\Package\PackageTmp\Images\Thumbs.db" />
+    <Content Include="obj\Release\Package\PackageTmp\packages.config" />
+    <Content Include="obj\Release\Package\PackageTmp\Properties\webjobs-list.json" />
+    <Content Include="obj\Release\Package\PackageTmp\Site.Master" />
+    <Content Include="obj\Release\Package\PackageTmp\Site.MasterProject.master" />
+    <Content Include="obj\Release\Package\PackageTmp\Site.Mobile.Master" />
+    <Content Include="obj\Release\Package\PackageTmp\Web.config" />
+    <Content Include="obj\Release\TransformWebConfig\assist\Web.config" />
+    <Content Include="obj\Release\TransformWebConfig\original\Web.config" />
+    <Content Include="obj\Release\TransformWebConfig\transformed\Web.config" />
+    <None Include="Properties\PublishProfiles\cmpe285team14 %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\cmpe285team14.pubxml" />
+    <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="SignUp.aspx" />
+    <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Bundle.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\_references.js" />
+    <Content Include="Site.Mobile.Master" />
+    <Content Include="Site.MasterProject.master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Ambulance.aspx.cs">
+      <DependentUpon>Ambulance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ambulance.aspx.designer.cs">
+      <DependentUpon>Ambulance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Booking.aspx.cs">
+      <DependentUpon>Booking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Booking.aspx.designer.cs">
+      <DependentUpon>Booking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HealthTips.aspx.cs">
+      <DependentUpon>HealthTips.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HealthTips.aspx.designer.cs">
+      <DependentUpon>HealthTips.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Helpline.aspx.cs">
+      <DependentUpon>Helpline.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Helpline.aspx.designer.cs">
+      <DependentUpon>Helpline.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="New_Appointment.aspx.cs">
+      <DependentUpon>New_Appointment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="New_Appointment.aspx.designer.cs">
+      <DependentUpon>New_Appointment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Parking.aspx.cs">
+      <DependentUpon>Parking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Parking.aspx.designer.cs">
+      <DependentUpon>Parking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User_Appointments.aspx.cs">
+      <DependentUpon>User_Appointments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Appointments.aspx.designer.cs">
+      <DependentUpon>User_Appointments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\AuthConfig.cs" />
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Manage.aspx.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Manage.aspx.designer.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\OpenAuthProviders.ascx.cs">
+      <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\OpenAuthProviders.ascx.designer.cs">
+      <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\RegisterExternalLogin.aspx.cs">
+      <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\RegisterExternalLogin.aspx.designer.cs">
+      <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Hospital.aspx.cs">
+      <DependentUpon>Hospital.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Hospital.aspx.designer.cs">
+      <DependentUpon>Hospital.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Physician.aspx.cs">
+      <DependentUpon>Physician.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Physician.aspx.designer.cs">
+      <DependentUpon>Physician.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SignUp.aspx.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SignUp.aspx.designer.cs">
+      <DependentUpon>SignUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.designer.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.designer.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="obj\Debug\__testMsDeployConnection__\" />
+    <Folder Include="obj\Release\Database\" />
+    <Folder Include="obj\Release\ProfileTransformWebConfig\transformed\Account\" />
+    <Folder Include="obj\Release\TempPE\" />
+    <Folder Include="obj\Release\TransformWebConfig\transformed\Account\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\Web.config" />
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1078</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1078/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.Web.WebJobs.Publish.1.0.2\tools\webjobs.targets" Condition="Exists('..\packages\Microsoft.Web.WebJobs.Publish.1.0.2\tools\webjobs.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
